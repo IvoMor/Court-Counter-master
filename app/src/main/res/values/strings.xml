@@ -1,0 +1,39 @@
+<!-- Copyright (C) 2015 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Court Counter</string>
+    <string name="action_settings">Settings</string>
+    <string name="head_line">Volleyball score counter</string>
+    <string name="Team_name_A">Team_name_A</string>
+    <string name="Team_name_B">Team_name_B</string>
+    <string name="Score">Score</string>
+    <string name="inicBlanc">-</string>
+    <string name="inicZero">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="Smashes">Smashes</string>
+    <string name="Blocks">Blocks</string>
+    <string name="Reset_ALL">Reset ALL</string>
+    <string name="Team_B">Team_B</string>
+    <string name="Team_A">Team_A</string>
+    <string name="Set">Set</string>
+    <string name="Reset_A">Reset A</string>
+    <string name="Reset_B">Reset B</string>
+    <string name="set_1">1</string>
+    <string name="set_2">2</string>
+    <string name="set_3">3</string>
+    <string name="set_4">4</string>
+    <string name="set_5">5</string>
+</resources>
