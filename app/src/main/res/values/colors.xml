@@ -3,7 +3,7 @@
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryDark">#FB8C00</color>
     <color name="colorAccent">#FF9800</color>
-    <color name="mainTextColor">#616161</color>
+    <color name="mainTextColor">#202020</color>
     <color name="scoreTextColor">#000000</color>
     <color name="mainBackGround">#FFFFFF</color>
     <color name="redScore">#ff0000</color>
