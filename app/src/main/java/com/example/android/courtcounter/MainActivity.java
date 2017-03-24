@@ -27,6 +27,9 @@ import android.widget.Toast;
  * This activity keeps track of the basketball score for 2 teams.
  */
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     // Track - when the game stop (one team gets 3 points -> endGame = true)
     private boolean endGame = false;
 
@@ -57,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
     // Tracks the score for Team B
     private int setScoreTeamB = 0;
 
+    // Saving the scores for Team A by int array
+    private int[] saveScoresTeamA = {0, 0, 0, 0, 0};
+
+    // Saving the scores for Team B by int array
+    private int[] saveScoresTeamB = {0, 0, 0, 0, 0};
+
+
     private TextView teamAname = null;
     private TextView teamBname = null;
 
@@ -70,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
     static final String SET_ACTUAL = "setActual";
     static final String SET_SCORE_TEAM_A = "setScoreTeamA";
     static final String SET_SCORE_TEAM_B = "setScoreTeamB";
+    static final String SAVE_SCORES_TEAM_A = "saveScoresTeamA";
+    static final String SAVE_SCORES_TEAM_B = "saveScoresTeamB";
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -84,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(SET_ACTUAL, setActual);
         savedInstanceState.putInt(SET_SCORE_TEAM_A, setScoreTeamA);
         savedInstanceState.putInt(SET_SCORE_TEAM_B, setScoreTeamB);
+        savedInstanceState.putIntArray(SAVE_SCORES_TEAM_A, saveScoresTeamA);
+        savedInstanceState.putIntArray(SAVE_SCORES_TEAM_B, saveScoresTeamB);
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
@@ -101,8 +115,11 @@ public class MainActivity extends AppCompatActivity {
         smashesCounterTeamB = savedInstanceState.getInt(TEAM_B_SMASHES);
         blocksCounterTeamA = savedInstanceState.getInt(TEAM_A_BLOCKS);
         blocksCounterTeamB = savedInstanceState.getInt(TEAM_B_BLOCKS);
+        setActual = savedInstanceState.getInt(SET_ACTUAL);
         setScoreTeamA = savedInstanceState.getInt(SET_SCORE_TEAM_A);
         setScoreTeamB = savedInstanceState.getInt(SET_SCORE_TEAM_B);
+        saveScoresTeamA = savedInstanceState.getIntArray(SAVE_SCORES_TEAM_A);
+        saveScoresTeamB = savedInstanceState.getIntArray(SAVE_SCORES_TEAM_B);
 
         // display data again
         displayForTeamA(scoreTeamA);
@@ -112,10 +129,15 @@ public class MainActivity extends AppCompatActivity {
         displayBlocksForTeamA(blocksCounterTeamA);
         displayBlocksForTeamB(blocksCounterTeamB);
 
+        for (int setTracker = 1; setTracker <= 5; setTracker++) {
+            addSetScore(setTracker);
+        }
+
         TextView TeamAsetScore = (TextView) findViewById(R.id.team_a_set_score);
         TeamAsetScore.setText(String.valueOf(setScoreTeamA));
         TextView TeamBsetScore = (TextView) findViewById(R.id.team_b_set_score);
         TeamBsetScore.setText(String.valueOf(setScoreTeamB));
+
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,7 +239,11 @@ public class MainActivity extends AppCompatActivity {
             if (scoreTeamA - scoreTeamB >= 2) {
                 TextView teamAname = (TextView) findViewById(R.id.team_a_name);
                 Toast.makeText(this, teamAname.getText().toString() + " WIN a set", Toast.LENGTH_LONG).show();
-                addSetScore();
+                //saving scores for actual set
+                saveScoresTeamA[setActual - 1] = scoreTeamA;
+                saveScoresTeamB[setActual - 1] = scoreTeamB;
+                addSetScore(setActual);
+                addSetDefScore();
                 if (endGame) return;
                 resetScoreA(v);
                 resetScoreB(v);
@@ -254,7 +280,11 @@ public class MainActivity extends AppCompatActivity {
             if ((scoreTeamB - scoreTeamA) >= 2) {
                 TextView teamBname = (TextView) findViewById(R.id.team_b_name);
                 Toast.makeText(this, teamBname.getText().toString() + " WIN a set", Toast.LENGTH_LONG).show();
-                addSetScore();
+                //saving scores for actual set
+                saveScoresTeamA[setActual - 1] = scoreTeamA;
+                saveScoresTeamB[setActual - 1] = scoreTeamB;
+                addSetScore(setActual);
+                addSetDefScore();
                 if (endGame) return;
                 resetScoreA(v);
                 resetScoreB(v);
@@ -464,7 +494,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays set result - score
      */
-    public void addSetScore() {
+    public void addSetScore(int setActual) {
         int idA = 0;
         int idB = 0;
 
@@ -493,15 +523,17 @@ public class MainActivity extends AppCompatActivity {
         TextView TeamAsetScore = (TextView) findViewById(idA);
         TextView TeamBsetScore = (TextView) findViewById(idB);
 
-        TeamAsetScore.setText(String.valueOf(scoreTeamA));
-        TeamBsetScore.setText(String.valueOf(scoreTeamB));
+        TeamAsetScore.setText(String.valueOf(saveScoresTeamA[setActual - 1]));
+        TeamBsetScore.setText(String.valueOf(saveScoresTeamB[setActual - 1]));
+    }
 
+    public void addSetDefScore() {
         // update setScore TextView
         if (scoreTeamA > scoreTeamB) {
-            TeamAsetScore = (TextView) findViewById(R.id.team_a_set_score);
+            TextView TeamAsetScore = (TextView) findViewById(R.id.team_a_set_score);
             TeamAsetScore.setText(String.valueOf(++setScoreTeamA));
         } else {
-            TeamBsetScore = (TextView) findViewById(R.id.team_b_set_score);
+            TextView TeamBsetScore = (TextView) findViewById(R.id.team_b_set_score);
             TeamBsetScore.setText(String.valueOf(++setScoreTeamB));
         }
 
