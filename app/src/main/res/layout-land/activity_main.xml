@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/headline"
+        style="@style/TeamNameTextStyle"
+        android:background="@color/colorAccent"
+        android:text="@string/head_line"
+        android:textAllCaps="true"
+        android:textColor="@color/scoreTextColor" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_margin"
+            android:contentDescription="@string/background_image"
+            android:src="@drawable/ball">
+        </ImageView>
+
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/team_a_name"
+                    style="@style/TeamNameTextStyle"
+                    android:cursorVisible="false"
+                    android:hint="@string/Team_name_A"
+                    android:inputType="text" />
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Score" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneTeamA"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_a_score"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textColor="@color/redScore" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneTeamA"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Smashes" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneSmashTeamA"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_a_smashes"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textSize="@dimen/counters_text_size" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneSmashTeamA"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Blocks" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneBlockTeamA"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_a_blocks"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textSize="@dimen/counters_text_size" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneBlockTeamA"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View style="@style/VerticalLineBetweenStyle" />
+
+            <LinearLayout
+                android:id="@+id/sec_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/teamA_score_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/team_a_name2"
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:text="@string/Team_A_Land" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_1"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_2"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_3"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_4"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_5"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_a_set_score"
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:gravity="center"
+                            android:text="@string/inicZero" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:text="@string/Set" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/set_1"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/set_2" />
+
+                        <TextView
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/set_3" />
+
+                        <TextView
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/set_4" />
+
+                        <TextView
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/set_5" />
+
+                        <TextView
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:gravity="center"
+                            android:text="@string/Score" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/teamB_score_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/team_b_name2"
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:text="@string/Team_B_Land" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_1"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_2"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_3"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_4"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_5"
+                            style="@style/SetPointTextStyleLand"
+                            android:text="@string/inicBlanc" />
+
+                        <TextView
+                            android:id="@+id/team_b_set_score"
+                            style="@style/SetHeadLineTextStyleLand"
+                            android:gravity="center"
+                            android:text="@string/inicZero" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/horizontal_line"
+                    style="@style/HorizontalLineBetweenStyle" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/resetA"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:onClick="resetScoreA"
+                        android:text="@string/Reset_A"
+                        android:textSize="@dimen/buton_text_size" />
+
+                    <Button
+                        android:id="@+id/reset"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="resetAll"
+                        android:text="@string/all" />
+
+                    <Button
+                        android:id="@+id/resetB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:onClick="resetScoreB"
+                        android:text="@string/Reset_B"
+                        android:textSize="@dimen/buton_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View style="@style/VerticalLineBetweenStyle" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/team_b_name"
+                    style="@style/TeamNameTextStyle"
+                    android:cursorVisible="false"
+                    android:hint="@string/Team_name_B"
+                    android:inputType="text" />
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Score" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneTeamB"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_b_score"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textColor="@color/redScore" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneTeamB"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Smashes" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneSmashTeamB"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_b_smashes"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textSize="@dimen/counters_text_size" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneSmashTeamB"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineBetweenStyle" />
+
+                <TextView
+                    style="@style/HeadLineTextStyleLand"
+                    android:text="@string/Blocks" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addMinusOneBlockTeamB"
+                        android:text="@string/minus" />
+
+                    <TextView
+                        android:id="@+id/team_b_blocks"
+                        style="@style/ScoreTextStyle"
+                        android:text="@string/inicZero"
+                        android:textSize="@dimen/counters_text_size" />
+
+                    <Button
+                        style="@style/PlusMinusButtonStyleLand"
+                        android:onClick="addPlusOneBlockTeamB"
+                        android:text="@string/plus" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -34,6 +34,16 @@
         <item name="android:textSize">@dimen/head_line_text_size</item>
     </style>
 
+    <style name="HeadLineTextStyleLand" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/xsmall_padding</item>
+        <item name="android:textColor">@color/mainTextColor</item>
+        <item name="android:textSize">@dimen/head_line_text_size</item>
+    </style>
+
     <style name="HorizontalLineBetweenStyle" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -49,6 +59,14 @@
         <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
 
+    <style name="PlusMinusButtonStyleLand" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/medium_margin</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
+
     <style name="SetHeadLineTextStyle" >
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -60,12 +78,34 @@
         <item name="android:textSize">@dimen/head_line_text_size</item>
     </style>
 
+    <style name="SetHeadLineTextStyleLand" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/small_padding</item>
+        <item name="android:textColor">@color/mainTextColor</item>
+        <item name="android:textSize">@dimen/head_line_text_size</item>
+    </style>
+
     <style name="SetPointTextStyle" >
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1.2</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/small_padding</item>
+        <item name="android:textColor">@color/mainTextColor</item>
+        <item name="android:textSize">@dimen/head_line_text_size</item>
+    </style>
+
+    <style name="SetPointTextStyleLand" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.2</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:padding">@dimen/small_padding</item>
         <item name="android:textColor">@color/mainTextColor</item>
         <item name="android:textSize">@dimen/head_line_text_size</item>
