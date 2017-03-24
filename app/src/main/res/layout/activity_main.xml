@@ -12,7 +12,7 @@
         style="@style/TeamNameTextStyle"
         android:background="@color/colorAccent"
         android:text="@string/head_line"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="@color/scoreTextColor" />
 
 
