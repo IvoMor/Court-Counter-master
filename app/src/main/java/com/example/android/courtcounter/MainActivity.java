@@ -60,13 +60,69 @@ public class MainActivity extends AppCompatActivity {
     private TextView teamAname = null;
     private TextView teamBname = null;
 
+    static final String END_GAME = "endGame";
+    static final String TEAM_A_SCORE = "scoreTeamA";
+    static final String TEAM_B_SCORE = "scoreTeamB";
+    static final String TEAM_A_SMASHES = "smashesCounterTeamA";
+    static final String TEAM_B_SMASHES = "smashesCounterTeamB";
+    static final String TEAM_A_BLOCKS = "blocksCounterTeamA";
+    static final String TEAM_B_BLOCKS = "blocksCounterTeamB";
+    static final String SET_ACTUAL = "setActual";
+    static final String SET_SCORE_TEAM_A = "setScoreTeamA";
+    static final String SET_SCORE_TEAM_B = "setScoreTeamB";
+
     @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putBoolean(END_GAME, endGame);
+        savedInstanceState.putInt(TEAM_A_SCORE, scoreTeamA);
+        savedInstanceState.putInt(TEAM_B_SCORE, scoreTeamB);
+        savedInstanceState.putInt(TEAM_A_SMASHES, smashesCounterTeamA);
+        savedInstanceState.putInt(TEAM_B_SMASHES, smashesCounterTeamB);
+        savedInstanceState.putInt(TEAM_A_BLOCKS, blocksCounterTeamA);
+        savedInstanceState.putInt(TEAM_B_BLOCKS, blocksCounterTeamB);
+        savedInstanceState.putInt(SET_ACTUAL, setActual);
+        savedInstanceState.putInt(SET_SCORE_TEAM_A, setScoreTeamA);
+        savedInstanceState.putInt(SET_SCORE_TEAM_B, setScoreTeamB);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore state members from saved instance
+        endGame = savedInstanceState.getBoolean(END_GAME);
+        scoreTeamA = savedInstanceState.getInt(TEAM_A_SCORE);
+        scoreTeamB = savedInstanceState.getInt(TEAM_B_SCORE);
+        smashesCounterTeamA = savedInstanceState.getInt(TEAM_A_SMASHES);
+        smashesCounterTeamB = savedInstanceState.getInt(TEAM_B_SMASHES);
+        blocksCounterTeamA = savedInstanceState.getInt(TEAM_A_BLOCKS);
+        blocksCounterTeamB = savedInstanceState.getInt(TEAM_B_BLOCKS);
+        setScoreTeamA = savedInstanceState.getInt(SET_SCORE_TEAM_A);
+        setScoreTeamB = savedInstanceState.getInt(SET_SCORE_TEAM_B);
+
+        // display data again
+        displayForTeamA(scoreTeamA);
+        displayForTeamB(scoreTeamB);
+        displaySmashesForTeamA(smashesCounterTeamA);
+        displaySmashesForTeamB(smashesCounterTeamB);
+        displayBlocksForTeamA(blocksCounterTeamA);
+        displayBlocksForTeamB(blocksCounterTeamB);
+
+        TextView TeamAsetScore = (TextView) findViewById(R.id.team_a_set_score);
+        TeamAsetScore.setText(String.valueOf(setScoreTeamA));
+        TextView TeamBsetScore = (TextView) findViewById(R.id.team_b_set_score);
+        TeamBsetScore.setText(String.valueOf(setScoreTeamB));
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // change the hint Text in EditText View OnFocus and back
-
         teamAname = (TextView) findViewById(R.id.team_a_name);
         teamAname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
